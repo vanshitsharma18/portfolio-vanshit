@@ -10,6 +10,10 @@ const links = [
   { id: 'contact',       label: 'Contact' },
 ]
 
+// Journey is a separate route — handled as a real link
+const JOURNEY_HREF = '/journey'
+
+
 const navStyles = {
   nav: {
     position: 'fixed', top: 0, left: 0, right: 0,
@@ -85,6 +89,19 @@ export default function Navbar({ activeSection }) {
             )}
           </motion.button>
         ))}
+        {/* Journey — separate route */}
+        <a
+          href={JOURNEY_HREF}
+          style={{
+            ...navStyles.link,
+            color: 'var(--teal)',
+            textDecoration: 'none',
+            display: 'inline-flex', alignItems: 'center', gap: 4,
+            cursor: 'none',
+          }}
+        >
+          ✦ Journey
+        </a>
       </div>
 
       <a href="mailto:vanshitsharma2006@gmail.com" style={navStyles.hire}
@@ -128,6 +145,13 @@ export default function Navbar({ activeSection }) {
                 {l.label}
               </button>
             ))}
+            {/* Journey link in mobile menu */}
+            <a href={JOURNEY_HREF}
+              style={{ ...navStyles.link, fontSize: '1.3rem', color: 'var(--teal)', padding: '12px 32px', textDecoration: 'none', display: 'block' }}
+              onClick={() => setMenuOpen(false)}
+            >
+              ✦ Journey
+            </a>
             <a href="mailto:vanshitsharma2006@gmail.com" style={{ ...navStyles.hire, marginTop: 16 }}>Hire Me</a>
           </motion.div>
         )}
